@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  HiberLink
+
+  Created by Nathan FALLET on 19/04/2020.
+  Copyright © 2020 Nathan FALLET. All rights reserved.
+*/
+
+"upload_title" = "Upload";
+"upload_input" = "Choose a file…";
+"upload_generate" = "Upload";
+"upload_generating" = "Uploading…";
+"upload_output" = "Generated link will be shown here";
+"upload_copy" = "Copy generated link";
+"upload_error" = "An error occurred!";
+"history_title" = "History";
+"history_clear" = "Clear";
+"copied_title" = "Link copied!";
+"copied_close" = "Close";
