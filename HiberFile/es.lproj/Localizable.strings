@@ -1,3 +1,11 @@
+/* 
+  Localizable.strings
+  HiberLink
+
+  Created by Nathan FALLET on 19/04/2020.
+  Copyright © 2020 Nathan FALLET. All rights reserved.
+*/
+
 "copied_close" = "Cerrar";
 "copied_title" = "¡Enlace copiado!";
 "history_clear" = "Vaciar";
@@ -9,3 +17,7 @@
 "upload_generate" = "Enviar";
 "upload_input" = "Eligir un archivo…";
 "upload_title" = "Enviar";
+"help" = "Acceder a HiberFile";
+"open" = "Abrir";
+"copy" = "Copiar";
+"cancel" = "Cancelar";

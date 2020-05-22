@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   HiberLink
 
@@ -17,3 +17,7 @@
 "history_clear" = "Effacer";
 "copied_title" = "Lien copié !";
 "copied_close" = "Fermer";
+"help" = "Accéder à HiberFile";
+"open" = "Ouvrir";
+"copy" = "Copier";
+"cancel" = "Annuler";

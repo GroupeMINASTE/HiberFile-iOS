@@ -17,3 +17,7 @@
 "history_clear" = "Clear";
 "copied_title" = "Link copied!";
 "copied_close" = "Close";
+"help" = "Access HiberFile";
+"open" = "Open";
+"copy" = "Copy";
+"cancel" = "Cancel";

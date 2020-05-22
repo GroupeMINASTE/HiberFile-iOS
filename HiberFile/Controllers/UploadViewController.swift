@@ -1,3 +1,20 @@
+/*
+Copyright (C) 2020 Groupe MINASTE
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
 //
 //  UploadViewController.swift
 //  HiberLink
@@ -60,6 +77,12 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
         input.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -15).isActive = true
         input.setTitle("upload_input".localized(), for: .normal)
         input.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        if #available(iOS 13.0, *) {
+            input.setTitleColor(.label, for: .normal)
+        } else {
+            // Fallback on earlier versions
+            input.setTitleColor(.black, for: .normal)
+        }
         
         generate.translatesAutoresizingMaskIntoConstraints = false
         generate.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 15).isActive = true
@@ -67,9 +90,9 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
         generate.widthAnchor.constraint(equalToConstant: 300).isActive = true
         generate.heightAnchor.constraint(equalToConstant: 50).isActive = true
         generate.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
-        generate.setTitle("upload_generate".localized(), for: .normal)
+        generate.setTitle("upload_input".localized(), for: .normal)
         generate.setTitle("upload_generating".localized(), for: .disabled)
-        generate.setTitleColor(.white, for: .normal)
+        generate.setTitle("upload_generate".localized(), for: .highlighted)
         generate.backgroundColor = .systemBlue
         generate.layer.cornerRadius = 10
         generate.clipsToBounds = true
@@ -106,8 +129,11 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
     
     @objc func buttonClicked(_ sender: UIButton) {
         if sender == input {
-            let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import)
+            let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypeData), String(kUTTypeContent), String(kUTTypeItem)], in: .import)
             importMenu.delegate = self
+            if #available(iOS 11.0, *) {
+                importMenu.allowsMultipleSelection = false
+            }
             importMenu.modalPresentationStyle = .formSheet
             self.present(importMenu, animated: true, completion: nil)
         } else if sender == generate, let url = url {
@@ -143,6 +169,8 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
                     
                     // Enable again
                     self.generate.isEnabled = true
+                    self.url = nil
+                    self.input.setTitle("upload_input".localized(), for: .normal)
                 }
             } catch {
                 print(error)
@@ -159,6 +187,8 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
             let alert = UIAlertController(title: "copied_title".localized(), message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "copied_close".localized(), style: .default) { action in })
             present(alert, animated: true, completion: nil)
+        } else if sender == generate {
+            buttonClicked(input)
         }
     }
     
@@ -169,6 +199,8 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
             
             // Set file name
             self.input.setTitle(url?.lastPathComponent, for: .normal)
+            
+            self.generate.isHighlighted = true
         }
     }
     
