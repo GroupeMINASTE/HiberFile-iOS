@@ -107,15 +107,14 @@ class Database {
     // Check for review
     func checkForReview() {
         // Check number of saves to ask for a review
-//        let datas = UserDefaults.standard
-//        let savesCount = datas.integer(forKey: "savesCount") + 1
-//        datas.set(savesCount, forKey: "savesCount")
-//        datas.synchronize()
-//
-//        if savesCount == 10 || savesCount == 50 || savesCount % 100 == 0 {
-//            SKStoreReviewController.requestReview()
-//        }
-        print("Will not request a review.")
+        let datas = UserDefaults.standard
+        let savesCount = datas.integer(forKey: "savesCount") + 1
+        datas.set(savesCount, forKey: "savesCount")
+        datas.synchronize()
+
+        if savesCount == 10 || savesCount == 50 || savesCount % 100 == 0 {
+            SKStoreReviewController.requestReview()
+        }
     }
     
 }
