@@ -367,7 +367,7 @@
 				CODE_SIGN_ENTITLEMENTS = HiberFile/HiberFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = HiberFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -375,7 +375,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathanfallet.HiberFile;
 				PRODUCT_NAME = HiberFile;
@@ -397,7 +397,7 @@
 				CODE_SIGN_ENTITLEMENTS = HiberFile/HiberFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = HiberFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -405,7 +405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathanfallet.HiberFile;
 				PRODUCT_NAME = HiberFile;
