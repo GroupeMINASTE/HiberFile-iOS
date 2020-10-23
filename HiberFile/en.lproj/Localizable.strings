@@ -21,3 +21,8 @@
 "open" = "Open";
 "copy" = "Copy";
 "cancel" = "Cancel";
+"1 heure" = "1 hour";
+"1 jour" = "1 day";
+"3 jours" = "3 days";
+"7 jours" = "7 days";
+"Jamais" = "Never";

@@ -105,7 +105,7 @@ class APIRequest {
             
             // Add the file
             bodyData.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-            bodyData.append("Content-Disposition: form-data; name=\"my_file\"; filename=\"\(name)\"\r\n".data(using: .utf8)!)
+            bodyData.append("Content-Disposition: form-data; name=\"my_file[]\"; filename=\"\(name)\"\r\n".data(using: .utf8)!)
             bodyData.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
             bodyData.append(file)
             

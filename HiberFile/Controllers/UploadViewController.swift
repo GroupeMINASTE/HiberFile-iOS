@@ -26,17 +26,36 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 import UIKit
 import MobileCoreServices
 
-class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate {
+class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return selectOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return selectOptions[row].localized()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selected = selectOptions[row]
+    }
+    
     
     let scrollView = UIScrollView()
     let contentView = UIView()
     let input = UIButton()
+    let select = UIPickerView()
     let generate = UIButton()
     let output = UITextField()
     let copy = UIButton()
     var bottomConstraint: NSLayoutConstraint!
     var url: URL?
     weak var delegate: HistoryDelegate?
+    let selectOptions = ["1 heure", "1 jour", "3 jours", "7 jours", "Jamais"]
+    var selected = "1 heure"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +86,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
         contentView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         
         contentView.addSubview(input)
+        contentView.addSubview(select)
         contentView.addSubview(generate)
         contentView.addSubview(output)
         contentView.addSubview(copy)
@@ -84,8 +104,16 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
             input.setTitleColor(.black, for: .normal)
         }
         
+        select.translatesAutoresizingMaskIntoConstraints = false
+        select.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 15).isActive = true
+        select.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        select.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        select.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        select.delegate = self
+        select.dataSource = self
+        
         generate.translatesAutoresizingMaskIntoConstraints = false
-        generate.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 15).isActive = true
+        generate.topAnchor.constraint(equalTo: select.bottomAnchor, constant: 15).isActive = true
         generate.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         generate.widthAnchor.constraint(equalToConstant: 300).isActive = true
         generate.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -107,6 +135,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
         output.autocapitalizationType = .none
         output.returnKeyType = .done
         output.keyboardType = .URL
+        output.isUserInteractionEnabled = false
         output.delegate = self
         
         copy.translatesAutoresizingMaskIntoConstraints = false
@@ -146,7 +175,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
                 let data = try Data(contentsOf: url)
                 
                 // Generate a link
-                APIRequest("POST", path: "/send.php").with(body: ["time": "7 jours"]).uploadFile(file: data, name: url.lastPathComponent) { string, status in
+                APIRequest("POST", path: "/send.php").with(body: ["time": selected]).uploadFile(file: data, name: url.lastPathComponent) { string, status in
                     // Check if request was sent
                     if let string = string {
                         // Show generated link
@@ -162,6 +191,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
                         // Select it
                         self.output.becomeFirstResponder()
                         self.output.selectAll(nil)
+                        self.buttonClicked(self.copy)
                     } else {
                         // An error occured
                         self.output.text = "upload_error".localized()
