@@ -89,9 +89,6 @@ class Database {
         } catch {
             print(error.localizedDescription)
         }
-        
-        // Check number of saves to ask for a review
-        checkForReview()
     }
     
     // Delete history
@@ -104,19 +101,5 @@ class Database {
         }
     }
     
-    // Check for review
-    func checkForReview() {
-        // Check number of saves to ask for a review
-        let datas = UserDefaults.standard
-        let savesCount = datas.integer(forKey: "savesCount") + 1
-        datas.set(savesCount, forKey: "savesCount")
-        datas.synchronize()
-
-        if savesCount == 10 || savesCount == 50 || savesCount % 100 == 0 {
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            }
-        }
-    }
-    
+    // Request for review deprecated, removing while finding a way to implement the new way using Scenes.
 }

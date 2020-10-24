@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDB0796525439C6B00F0D815 /* CustomShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0796425439C6B00F0D815 /* CustomShareViewController.swift */; };
+		EDB0796C25439C6B00F0D815 /* HiberFile Input.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EDB0796225439C6B00F0D815 /* HiberFile Input.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EDB0797425439EFE00F0D815 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC438F5244CE0C20080D8C2 /* APIRequest.swift */; };
+		EDB0797725439F0100F0D815 /* APIResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC438F4244CE0C20080D8C2 /* APIResponseStatus.swift */; };
+		EDB0797A25439F3200F0D815 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC43909244CE11A0080D8C2 /* Database.swift */; };
+		EDB0797E25439FC400F0D815 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0797D25439FC400F0D815 /* SQLite */; };
+		EDB079852543A2EE00F0D815 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDDC52B2244CE8270099AA5F /* Localizable.strings */; };
+		EDB079892543A64800F0D815 /* CustomShareNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB079882543A64800F0D815 /* CustomShareNavigationController.swift */; };
+		EDB079922543A89300F0D815 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC43903244CE1080080D8C2 /* StringExtension.swift */; };
+		EDB079952543A89600F0D815 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC43902244CE1080080D8C2 /* UIColorExtension.swift */; };
 		EDC438F6244CE0C20080D8C2 /* APIResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC438F4244CE0C20080D8C2 /* APIResponseStatus.swift */; };
 		EDC438F7244CE0C20080D8C2 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC438F5244CE0C20080D8C2 /* APIRequest.swift */; };
 		EDC438FE244CE0EF0080D8C2 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC438FB244CE0EE0080D8C2 /* UploadViewController.swift */; };
@@ -23,7 +33,36 @@
 		EDDC52B0244CE8270099AA5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDDC52B2244CE8270099AA5F /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EDB0796A25439C6B00F0D815 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A3F4FD9244BAFEA0052EB7D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDB0796125439C6B00F0D815;
+			remoteInfo = "HiberFile Input";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EDB0796E25439C6B00F0D815 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EDB0796C25439C6B00F0D815 /* HiberFile Input.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EDB0796225439C6B00F0D815 /* HiberFile Input.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HiberFile Input.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB0796425439C6B00F0D815 /* CustomShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareViewController.swift; sourceTree = "<group>"; };
+		EDB0796925439C6B00F0D815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDB0796D25439C6B00F0D815 /* HiberFile Input.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HiberFile Input.entitlements"; sourceTree = "<group>"; };
+		EDB079882543A64800F0D815 /* CustomShareNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareNavigationController.swift; sourceTree = "<group>"; };
 		EDC438B8244CE0350080D8C2 /* HiberFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiberFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC438EB244CE07C0080D8C2 /* HiberFile.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HiberFile.entitlements; sourceTree = "<group>"; };
 		EDC438F4244CE0C20080D8C2 /* APIResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseStatus.swift; sourceTree = "<group>"; };
@@ -45,6 +84,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EDB0795F25439C6B00F0D815 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB0797E25439FC400F0D815 /* SQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EDC438B5244CE0350080D8C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -60,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC438B9244CE0350080D8C2 /* HiberFile */,
+				EDB0796325439C6B00F0D815 /* HiberFile Input */,
 				6A3F4FE2244BAFEA0052EB7D /* Products */,
 				EDC43911244CE29A0080D8C2 /* Frameworks */,
 			);
@@ -69,8 +117,20 @@
 			isa = PBXGroup;
 			children = (
 				EDC438B8244CE0350080D8C2 /* HiberFile.app */,
+				EDB0796225439C6B00F0D815 /* HiberFile Input.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EDB0796325439C6B00F0D815 /* HiberFile Input */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0796D25439C6B00F0D815 /* HiberFile Input.entitlements */,
+				EDB0796425439C6B00F0D815 /* CustomShareViewController.swift */,
+				EDB079882543A64800F0D815 /* CustomShareNavigationController.swift */,
+				EDB0796925439C6B00F0D815 /* Info.plist */,
+			);
+			path = "HiberFile Input";
 			sourceTree = "<group>";
 		};
 		EDC438B9244CE0350080D8C2 /* HiberFile */ = {
@@ -137,6 +197,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EDB0796125439C6B00F0D815 /* HiberFile Input */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDB0797125439C6B00F0D815 /* Build configuration list for PBXNativeTarget "HiberFile Input" */;
+			buildPhases = (
+				EDB0795E25439C6B00F0D815 /* Sources */,
+				EDB0795F25439C6B00F0D815 /* Frameworks */,
+				EDB0796025439C6B00F0D815 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HiberFile Input";
+			packageProductDependencies = (
+				EDB0797D25439FC400F0D815 /* SQLite */,
+			);
+			productName = "HiberFile Input";
+			productReference = EDB0796225439C6B00F0D815 /* HiberFile Input.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EDC438B7244CE0350080D8C2 /* HiberFile */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDC438E2244CE0360080D8C2 /* Build configuration list for PBXNativeTarget "HiberFile" */;
@@ -144,10 +224,12 @@
 				EDC438B4244CE0350080D8C2 /* Sources */,
 				EDC438B5244CE0350080D8C2 /* Frameworks */,
 				EDC438B6244CE0350080D8C2 /* Resources */,
+				EDB0796E25439C6B00F0D815 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EDB0796B25439C6B00F0D815 /* PBXTargetDependency */,
 			);
 			name = HiberFile;
 			packageProductDependencies = (
@@ -163,10 +245,13 @@
 		6A3F4FD9244BAFEA0052EB7D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Nathan FALLET";
 				TargetAttributes = {
+					EDB0796125439C6B00F0D815 = {
+						CreatedOnToolsVersion = 12.1;
+					};
 					EDC438B7244CE0350080D8C2 = {
 						CreatedOnToolsVersion = 11.4.1;
 						LastSwiftMigration = 1140;
@@ -192,11 +277,20 @@
 			projectRoot = "";
 			targets = (
 				EDC438B7244CE0350080D8C2 /* HiberFile */,
+				EDB0796125439C6B00F0D815 /* HiberFile Input */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EDB0796025439C6B00F0D815 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB079852543A2EE00F0D815 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EDC438B6244CE0350080D8C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -210,6 +304,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EDB0795E25439C6B00F0D815 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB0797725439F0100F0D815 /* APIResponseStatus.swift in Sources */,
+				EDB079952543A89600F0D815 /* UIColorExtension.swift in Sources */,
+				EDB0797425439EFE00F0D815 /* APIRequest.swift in Sources */,
+				EDB079922543A89300F0D815 /* StringExtension.swift in Sources */,
+				EDB0797A25439F3200F0D815 /* Database.swift in Sources */,
+				EDB0796525439C6B00F0D815 /* CustomShareViewController.swift in Sources */,
+				EDB079892543A64800F0D815 /* CustomShareNavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EDC438B4244CE0350080D8C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +336,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDB0796B25439C6B00F0D815 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDB0796125439C6B00F0D815 /* HiberFile Input */;
+			targetProxy = EDB0796A25439C6B00F0D815 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EDDC52B2244CE8270099AA5F /* Localizable.strings */ = {
@@ -361,15 +477,64 @@
 			};
 			name = Release;
 		};
+		EDB0796F25439C6B00F0D815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "HiberFile Input/HiberFile Input.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = ZL9396WK65;
+				INFOPLIST_FILE = "HiberFile Input/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nathanfallet.HiberFile.HiberFile-Input";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDB0797025439C6B00F0D815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "HiberFile Input/HiberFile Input.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = ZL9396WK65;
+				INFOPLIST_FILE = "HiberFile Input/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nathanfallet.HiberFile.HiberFile-Input";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EDC438E3244CE0360080D8C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiberFile/HiberFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = HiberFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -394,12 +559,13 @@
 		EDC438E4244CE0360080D8C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HiberFile/HiberFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = HiberFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -432,6 +598,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		EDB0797125439C6B00F0D815 /* Build configuration list for PBXNativeTarget "HiberFile Input" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDB0796F25439C6B00F0D815 /* Debug */,
+				EDB0797025439C6B00F0D815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EDC438E2244CE0360080D8C2 /* Build configuration list for PBXNativeTarget "HiberFile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -455,6 +630,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EDB0797D25439FC400F0D815 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6AB0B540244BC08700E403AE /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		EDC43912244CE29A0080D8C2 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6AB0B540244BC08700E403AE /* XCRemoteSwiftPackageReference "SQLite.swift" */;
