@@ -86,7 +86,7 @@ class CustomShareViewController: UIViewController, UIPickerViewDelegate, UIPicke
             alert.addAction(UIAlertAction(title: "copied_close".localized(), style: .default) { action in
                 self.extensionContext?.cancelRequest(withError: error)
             })
-            
+            present(alert, animated: true, completion: nil)
             
         }
 
@@ -103,16 +103,19 @@ class CustomShareViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Check if the content type is the same as we expected
         if provider.hasItemConformingToTypeIdentifier(contentType) {
           provider.loadItem(forTypeIdentifier: contentType,
-                            options: nil) { [unowned self] (data, error) in
+                            options: nil) { (data, error) in
           // Handle the error here if you want
-          guard error == nil else { return }
+          guard error == nil else {
+            self.cancelAction()
+            return
+          }
                
           if let url = data as? URL,
              let imageData = try? Data(contentsOf: url) {
             self.save(data: imageData, url: url)
           } else {
             // Handle this situation as you prefer
-            cancelAction()
+            self.cancelAction()
           }
         }}
       }
