@@ -125,9 +125,11 @@ class CustomShareViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Generate a link
         APIRequest("POST", path: "/send.php").with(body: ["time": self.selected]).uploadFile(file: data, name: url.lastPathComponent) { string, status in
             // Check if request was sent
-            if let string = string {
+            if var string = string {
                 // Show generated link
                 print(string)
+                
+                string = string + "?p=legacy-wellknown"
                 
                 // Add it to database
                 Database.current.addFile((string, url.lastPathComponent, Date()))

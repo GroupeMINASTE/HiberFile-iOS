@@ -123,6 +123,11 @@ class HistoryTableViewController: UITableViewController, HistoryDelegate {
         
         choice.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
         
+        if let presenter = choice.popoverPresentationController {
+            presenter.sourceView = tableView
+            presenter.sourceRect = tableView.bounds
+        }
+        
         present(choice, animated: true, completion: nil)
         
         

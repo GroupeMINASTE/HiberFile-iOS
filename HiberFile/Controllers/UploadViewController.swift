@@ -25,6 +25,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 import UIKit
 import MobileCoreServices
+import SwCrypt
+import ZIPFoundation
+import CryptoKit
 
 class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -43,6 +46,11 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
         selected = selectOptions[row]
     }
     
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -52,7 +60,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
     let output = UITextField()
     let copy = UIButton()
     var bottomConstraint: NSLayoutConstraint!
-    var url: URL?
+    var urls: [URL]?
     weak var delegate: HistoryDelegate?
     let selectOptions = ["1 heure", "1 jour", "3 jours", "7 jours", "Jamais"]
     var selected = "1 heure"
@@ -160,25 +168,77 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
         if sender == input {
             let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypeData), String(kUTTypeContent), String(kUTTypeItem)], in: .import)
             importMenu.delegate = self
-            if #available(iOS 11.0, *) {
-                importMenu.allowsMultipleSelection = false
-            }
             importMenu.modalPresentationStyle = .formSheet
+            if #available(iOS 11.0, *) {
+                importMenu.allowsMultipleSelection = true
+            }
             self.present(importMenu, animated: true, completion: nil)
-        } else if sender == generate, let url = url {
+        } else if sender == generate, let urls = urls {
             // Disable
             input.endEditing(true)
             generate.isEnabled = false
             
             do {
+                
+                guard var url = urls.first else {
+                    self.generate.isEnabled = true
+                    return
+                }
+                
+                if urls.count > 1 {
+                    let fileManager = FileManager()
+                    
+                    let currentWorkingPath = getDocumentsDirectory().absoluteString
+                    
+                    var destinationURL = URL(fileURLWithPath: currentWorkingPath)
+                    destinationURL.appendPathComponent("HFLegacyArchive.zip")
+                    
+                    var tempURL = URL(fileURLWithPath: currentWorkingPath)
+                    tempURL.appendPathComponent("HFLegacyFolder")
+                    
+                    print("Checking \(tempURL.path)")
+                    if fileManager.fileExists(atPath: tempURL.path) {
+                        print("Removing \(tempURL.path)")
+                        try fileManager.removeItem(at: tempURL)
+                    }
+                    
+                    print("Checking \(destinationURL.path)")
+                    if fileManager.fileExists(atPath: destinationURL.path) {
+                        print("Removing \(destinationURL.path)")
+                        try fileManager.removeItem(at: destinationURL)
+                    }
+                    
+                    try fileManager.createDirectory(at: tempURL, withIntermediateDirectories: true, attributes: nil)
+                    
+                    for url in urls {
+                        var tempDestination = tempURL
+                        tempDestination.appendPathComponent(url.lastPathComponent)
+                        
+                        print("Checking \(tempDestination.path)")
+                        if fileManager.fileExists(atPath: tempDestination.path) {
+                            print("Removing \(tempDestination.path)")
+                            try fileManager.removeItem(at: tempDestination)
+                        }
+                        try fileManager.copyItem(at: url, to: tempDestination)
+                    }
+                    
+                    try fileManager.zipItem(at: tempURL, to: destinationURL, shouldKeepParent: false, compressionMethod: .none)
+                    
+                    url = destinationURL
+                    
+                }
+                
                 // Read data
                 let data = try Data(contentsOf: url)
                 
                 // Generate a link
                 APIRequest("POST", path: "/send.php").with(body: ["time": selected]).uploadFile(file: data, name: url.lastPathComponent) { string, status in
                     // Check if request was sent
-                    if let string = string {
+                    if var string = string {
                         // Show generated link
+                        
+                        string = string + "?p=legacy-wellknown"
+                        
                         self.output.text = string
                         print(string)
                         
@@ -195,15 +255,19 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
                     } else {
                         // An error occured
                         self.output.text = "upload_error".localized()
+                        print(status)
                     }
                     
                     // Enable again
                     self.generate.isEnabled = true
-                    self.url = nil
+                    self.urls = nil
                     self.input.setTitle("upload_input".localized(), for: .normal)
                 }
             } catch {
                 print(error)
+                self.generate.isEnabled = true
+                self.urls = nil
+                self.input.setTitle("upload_input".localized(), for: .normal)
             }
         } else if sender == copy, let url = output.text, !url.isEmpty {
             // Select it
@@ -223,15 +287,17 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIDocumentPic
     }
     
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        if let myURL = urls.first {
-            // Set URL
-            self.url = myURL
+        // Set URL
+        self.urls = urls
             
-            // Set file name
-            self.input.setTitle(url?.lastPathComponent, for: .normal)
-            
-            self.generate.isHighlighted = true
+        // Set file name
+        if urls.count > 1 {
+            self.input.setTitle("\(urls.count) \("files".localized())", for: .normal)
+        } else {
+            self.input.setTitle(urls.first?.lastPathComponent, for: .normal)
         }
+            
+        self.generate.isHighlighted = true
     }
     
     @objc func keyboardChanged(_ sender: NSNotification) {

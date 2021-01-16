@@ -9,6 +9,24 @@
           "revision": "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
           "version": "0.12.2"
         }
+      },
+      {
+        "package": "SwCrypt",
+        "repositoryURL": "https://github.com/soyersoyer/SwCrypt",
+        "state": {
+          "branch": null,
+          "revision": "d18cf90973a32dc0d28f94eec91faf14ae8b4443",
+          "version": "5.1.4"
+        }
+      },
+      {
+        "package": "ZIPFoundation",
+        "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
+        "state": {
+          "branch": null,
+          "revision": "ec32d62d412578542c0ffb7a6ce34d3e64b43b94",
+          "version": "0.9.11"
+        }
       }
     ]
   },

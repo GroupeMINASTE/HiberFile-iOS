@@ -29,6 +29,8 @@
 		EDC4390C244CE11A0080D8C2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC43909244CE11A0080D8C2 /* Database.swift */; };
 		EDC43913244CE29A0080D8C2 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = EDC43912244CE29A0080D8C2 /* SQLite */; };
 		EDC43918244CE4CA0080D8C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC4390F244CE14E0080D8C2 /* LaunchScreen.storyboard */; };
+		EDC749E325B25F9600F065BF /* SwCrypt in Frameworks */ = {isa = PBXBuildFile; productRef = EDC749E225B25F9600F065BF /* SwCrypt */; };
+		EDC749E825B25FA300F065BF /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EDC749E725B25FA300F065BF /* ZIPFoundation */; };
 		EDDC52AC244CE7D30099AA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC438F8244CE0D60080D8C2 /* Assets.xcassets */; };
 		EDDC52B0244CE8270099AA5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDDC52B2244CE8270099AA5F /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC43913244CE29A0080D8C2 /* SQLite in Frameworks */,
+				EDC749E325B25F9600F065BF /* SwCrypt in Frameworks */,
+				EDC749E825B25FA300F065BF /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +238,8 @@
 			name = HiberFile;
 			packageProductDependencies = (
 				EDC43912244CE29A0080D8C2 /* SQLite */,
+				EDC749E225B25F9600F065BF /* SwCrypt */,
+				EDC749E725B25FA300F065BF /* ZIPFoundation */,
 			);
 			productName = HiberFile;
 			productReference = EDC438B8244CE0350080D8C2 /* HiberFile.app */;
@@ -246,7 +252,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1210;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Nathan FALLET";
 				TargetAttributes = {
 					EDB0796125439C6B00F0D815 = {
@@ -271,6 +277,8 @@
 			mainGroup = 6A3F4FD8244BAFEA0052EB7D;
 			packageReferences = (
 				6AB0B540244BC08700E403AE /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				EDC749E125B25F9600F065BF /* XCRemoteSwiftPackageReference "SwCrypt" */,
+				EDC749E625B25FA300F065BF /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = 6A3F4FE2244BAFEA0052EB7D /* Products */;
 			projectDirPath = "";
@@ -411,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -467,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -482,7 +490,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HiberFile Input/HiberFile Input.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = "HiberFile Input/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -491,7 +499,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nathanfallet.HiberFile.HiberFile-Input";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -506,7 +514,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HiberFile Input/HiberFile Input.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = "HiberFile Input/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -515,7 +523,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nathanfallet.HiberFile.HiberFile-Input";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -534,7 +542,7 @@
 				CODE_SIGN_ENTITLEMENTS = HiberFile/HiberFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = HiberFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -542,7 +550,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.1;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathanfallet.HiberFile;
 				PRODUCT_NAME = HiberFile;
@@ -565,7 +573,7 @@
 				CODE_SIGN_ENTITLEMENTS = HiberFile/HiberFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = HiberFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -573,7 +581,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.1;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathanfallet.HiberFile;
 				PRODUCT_NAME = HiberFile;
@@ -627,6 +635,22 @@
 				minimumVersion = 0.12.2;
 			};
 		};
+		EDC749E125B25F9600F065BF /* XCRemoteSwiftPackageReference "SwCrypt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soyersoyer/SwCrypt";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.4;
+			};
+		};
+		EDC749E625B25FA300F065BF /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.11;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -639,6 +663,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6AB0B540244BC08700E403AE /* XCRemoteSwiftPackageReference "SQLite.swift" */;
 			productName = SQLite;
+		};
+		EDC749E225B25F9600F065BF /* SwCrypt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDC749E125B25F9600F065BF /* XCRemoteSwiftPackageReference "SwCrypt" */;
+			productName = SwCrypt;
+		};
+		EDC749E725B25FA300F065BF /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDC749E625B25FA300F065BF /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
